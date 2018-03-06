@@ -13,16 +13,31 @@ public class LectorDeTecldo {
 
 
     // haciendo el metodo Highlander!!!!
-    //solo puede existir uno!!
+    // solo puede existir uno!!
     public static LectorDeTecldo getInstance(){
         if(instance == null){
             instance =  new LectorDeTecldo();
         }
         return instance;
     }
+    
+    String leerPalabra(){
+        return scanner.next();
+    }
 
-    public Scanner getScanner() {
-        return scanner;
+    String leerLinea(){
+        return scanner.nextLine();
+    }
+
+    public int leerEntero(String mensaje, String reintento){
+        System.out.println(mensaje);
+        do{
+            if(scanner.hasNextInt()){
+                return scanner.nextInt();
+            }
+            scanner.next();
+            System.out.println(reintento);
+        }while(true);
     }
 
 
